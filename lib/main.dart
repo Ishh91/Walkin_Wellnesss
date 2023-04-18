@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:onboarding_screen/app_styles.dart';
-import 'views/onboarding_page.dart';
 import './views/pages.dart';
 
-void main() {
+bool ? seenOnboard;
+Future<void> main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   // to show status bar
+//   SystemChrome.setEnabledSystemUIMode(
+//       SystemUiMode.manual, overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
+//   // to load onboard for the first time only
+//   SharedPreferences pref = await SharedPreferences.getInstance();
+//   seenOnboard = pref.getBool('seenOnboard') ?? false; //if null set to false
   runApp(const MyApp());
 }
 
@@ -22,7 +29,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: kScaffoldBackground,
       ),
-      home: OnBoardingPage(),
+      home:OnBoardingPage(),
     );
   }
 }

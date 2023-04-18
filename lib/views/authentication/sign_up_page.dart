@@ -41,7 +41,8 @@ class _SignUpPageState extends State<SignUpPage> {
           child: Column(
             children: [
               Container(
-                child: Image.asset('assets/images/auth/signup_illustration.png'),
+                child:
+                    Image.asset('assets/images/auth/signup_illustration.png'),
               ),
               SizedBox(
                 height: height * 2,
@@ -74,7 +75,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       inputType: TextInputType.emailAddress,
                     ),
                     MyPasswordField(
-                        fillColor: Colors.white, focusNode: _signUpFocusNode[2]),
+                        fillColor: Colors.white,
+                        focusNode: _signUpFocusNode[2]),
                     MyCheckBox(
                       text: 'Keep me signed in',
                     ),
