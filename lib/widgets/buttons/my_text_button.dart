@@ -8,12 +8,11 @@ class MyTextButton extends StatelessWidget {
     Key? key,
     required this.buttonName,
     required this.onPressed,
-    required this.bgColor, required this.page,
+    required this.bgColor,
   }) : super(key: key);
   final String buttonName;
   final VoidCallback onPressed;
   final Color bgColor;
-  final Widget page;
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +25,7 @@ class MyTextButton extends StatelessWidget {
         width: SizeConfig.blockSizeH! * 100,
         child: TextButton(
           onPressed: (){
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => page),
-            );
+            onPressed;
           },
           child: Text(
             buttonName,

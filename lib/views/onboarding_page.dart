@@ -124,9 +124,13 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       ? MyTextButton(
                           buttonName: 'Get Started',
                           onPressed: () {
-
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignUpPage()),
+                            );
                           },
-                          bgColor: kPrimaryColor, page: SignUpPage(),
+                          bgColor: kPrimaryColor,
                         )
                       : Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,

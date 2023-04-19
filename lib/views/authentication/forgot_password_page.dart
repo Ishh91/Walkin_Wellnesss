@@ -18,6 +18,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final _forgotPassKey = GlobalKey<FormState>();
 
   void _onSumbit() {
+
     _forgotPassKey.currentState!.validate();
   }
 
@@ -116,7 +117,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                             MyTextButton(
                               buttonName: 'Send reset link',
                               onPressed: _onSumbit,
-                              bgColor: kPrimaryColor, page: LoginPage(),
+                              bgColor: kPrimaryColor,
                             ),
                             SizedBox(
                               height: 16,

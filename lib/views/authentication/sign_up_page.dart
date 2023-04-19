@@ -97,7 +97,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       MyTextButton(
                         buttonName: 'Create Account',
                         onPressed: onSubmit,
-                        bgColor: kPrimaryColor, page: LoginPage(),
+                        bgColor: kPrimaryColor,
                       ),
                     ],
                   ),

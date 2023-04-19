@@ -18,11 +18,13 @@ class _LoginPageState extends State<LoginPage> {
 
   void onSubmit() {
     setState(() {
-
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SignUpPage()),
+      );
     });
     _loginKey.currentState!.validate();
   }
-
   List<FocusNode> _loginFocusNodes = [
     FocusNode(),
     FocusNode(),
@@ -147,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                                           MyTextButton(
                                             buttonName: 'Login',
                                             onPressed: onSubmit,
-                                            bgColor: kPrimaryColor, page:SignUpPage(),
+                                            bgColor: kPrimaryColor,
                                           ),
                                         ],
                                       ),
