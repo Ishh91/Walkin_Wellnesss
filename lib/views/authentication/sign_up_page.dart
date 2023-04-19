@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:onboarding_screen/app_styles.dart';
-import 'package:onboarding_screen/size_configs.dart';
-import 'package:onboarding_screen/widgets/my_text_button.dart';
-
-import '../../fields/my_check_box.dart';
-import '../../fields/my_password_field.dart';
-import '../../fields/my_text_form_field.dart';
+import '../../app_styles.dart';
+import '../../size_configs.dart';
+import '../../validators.dart';
+import '../../widgets/buttons/large_icon_button.dart';
+import '../../widgets/buttons/small_text_buttons.dart';
+import '../pages.dart';
+import '../../widgets/widgets.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
+
   @override
   _SignUpPageState createState() => _SignUpPageState();
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  List<FocusNode> _signUpFocusNode = [
+  final _signUpKey = GlobalKey<FormState>();
+
+  void onSubmit() {
+    _signUpKey.currentState!.validate();
+  }
+
+  List<FocusNode> _signUpFocusNodes = [
     FocusNode(),
     FocusNode(),
     FocusNode(),
@@ -22,9 +29,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-    _signUpFocusNode.forEach((element) {
+    _signUpFocusNodes.forEach((element) {
       element.addListener(() {
         setState(() {});
       });
@@ -38,60 +44,126 @@ class _SignUpPageState extends State<SignUpPage> {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                child:
-                    Image.asset('assets/images/auth/signup_illustration.png'),
-              ),
-              SizedBox(
-                height: height * 2,
-              ),
-              Text(
-                'Create Your Account',
-                style: kTitle2,
-              ),
-              SizedBox(
-                height: height * 2,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Column(
-                  children: [
-                    MyTextFormField(
-                      fillColor: Colors.white,
-                      hint: 'Name',
-                      icon: Icons.person,
-                      inputAction: TextInputAction.next,
-                      focusNode: _signUpFocusNode[0],
-                      inputType: TextInputType.name,
-                    ),
-                    MyTextFormField(
-                      hint: 'Email',
-                      icon: Icons.email,
-                      fillColor: Colors.white,
-                      inputAction: TextInputAction.next,
-                      focusNode: _signUpFocusNode[1],
-                      inputType: TextInputType.emailAddress,
-                    ),
-                    MyPasswordField(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Column(
+              children: [
+                Container(
+                  child:
+                  Image.asset('assets/images/auth/signup_illustration.png'),
+                ),
+                SizedBox(
+                  height: height * 2,
+                ),
+                Text(
+                  'Create Your Account',
+                  style: kTitle2,
+                ),
+                SizedBox(
+                  height: height * 2,
+                ),
+                Form(
+                  key: _signUpKey,
+                  child: Column(
+                    children: [
+                      MyTextFormField(
                         fillColor: Colors.white,
-                        focusNode: _signUpFocusNode[2]),
-                    MyCheckBox(
-                      text: 'Keep me signed in',
+                        hint: 'Name',
+                        icon: Icons.person,
+                        inputAction: TextInputAction.next,
+                        inputType: TextInputType.name,
+                        focusNode: _signUpFocusNodes[0],
+                        validator: nameValidator,
+                      ),
+                      MyTextFormField(
+                          hint: 'Email',
+                          icon: Icons.email_outlined,
+                          fillColor: Colors.white,
+                          inputType: TextInputType.emailAddress,
+                          inputAction: TextInputAction.next,
+                          focusNode: _signUpFocusNodes[1],
+                          validator: emailValidator),
+                      MyPasswordField(
+                        fillColor: Colors.white,
+                        focusNode: _signUpFocusNodes[2],
+                        validator: passwordValidator,
+                      ),
+                      MyCheckBox(
+                        text: 'Keep me signed in',
+                      ),
+                      MyCheckBox(
+                        text: 'Email me about special pricing and more',
+                      ),
+                      MyTextButton(
+                        buttonName: 'Create Account',
+                        onPressed: onSubmit,
+                        bgColor: kPrimaryColor, page: LoginPage(),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Divider(
+                          height: 3,
+                          color: kSecondaryColor.withOpacity(0.4),
+                        ),
+                      ),
+                      Text(
+                        'Or sign in with',
+                        style: kBodyText3,
+                      ),
+                      Expanded(
+                        child: Divider(
+                          height: 3,
+                          color: kSecondaryColor.withOpacity(0.4),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: LargeIconButton(
+                        buttonName: 'Google',
+                        iconImage: 'assets/images/auth/google_icon.png',
+                      ),
                     ),
-                    MyCheckBox(
-                      text: 'Email us about more',
+                    SizedBox(
+                      width: 20,
                     ),
-                    MyTextButton(
-                      buttonName: 'Create Account',
-                      onPressed: () {},
-                      bgColor: kPrimaryColor,
+                    Expanded(
+                        child: LargeIconButton(
+                          buttonName: 'Facebook',
+                          iconImage: 'assets/images/auth/facebook_icon.png',
+                        )),
+                  ],
+                ),
+                SizedBox(
+                  height: height * 3,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Already have an account? ',
+                      style: kBodyText3,
+                    ),
+                    SmallTextButton(
+                      buttonText: 'Sign in',
+                      page: LoginPage(),
                     )
                   ],
                 ),
-              )
-            ],
+                SizedBox(
+                  height: height * 2,
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -3,7 +3,8 @@ import 'package:onboarding_screen/app_styles.dart';
 import 'package:onboarding_screen/model/onboard_data.dart';
 import 'package:onboarding_screen/size_configs.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../widgets/my_text_button.dart';
+import '../main.dart';
+import '../widgets/buttons/my_text_button.dart';
 import '../widgets/onboard_nav_btn.dart';
 import 'authentication/sign_up_page.dart';
 import './pages.dart';
@@ -30,9 +31,10 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       ),
     );
   }
+
   Future setSeenonboard() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    // seenOnboard = await prefs.setBool('seenOnboard', true);
+    seenOnboard = await prefs.setBool('seenOnboard', true);
     // this will set seenOnboard to true when running onboard page for first time.
   }
 
@@ -122,13 +124,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       ? MyTextButton(
                           buttonName: 'Get Started',
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => SignUpPage( ),
-                                ));
+
                           },
-                          bgColor: kPrimaryColor,
+                          bgColor: kPrimaryColor, page: SignUpPage(),
                         )
                       : Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -168,6 +166,3 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     );
   }
 }
-
-
-

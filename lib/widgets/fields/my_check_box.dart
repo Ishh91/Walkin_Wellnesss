@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../app_styles.dart';
+import '/app_styles.dart';
 
 class MyCheckBox extends StatefulWidget {
   const MyCheckBox({super.key, required this.text});

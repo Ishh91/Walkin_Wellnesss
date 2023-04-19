@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "301521268818",
+    "project_id": "walkin-wellness",
+    "storage_bucket": "walkin-wellness.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301521268818:android:5f24d9811fb3779f37af8b",
+        "android_client_info": {
+          "package_name": "com.walk_in_wellness.onboarding_screen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "301521268818-ivcbq4n8ucicijri63ircgaoijnnp4m7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_-GUlAzPdPliyJlau4h7aZpptL-OiRWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "301521268818-ivcbq4n8ucicijri63ircgaoijnnp4m7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

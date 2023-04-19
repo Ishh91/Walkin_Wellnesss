@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../app_styles.dart';
-import '../size_configs.dart';
+import '../../app_styles.dart';
+import '../../size_configs.dart';
 
 class MyTextButton extends StatelessWidget {
   const MyTextButton({
     Key? key,
     required this.buttonName,
     required this.onPressed,
-    required this.bgColor,
+    required this.bgColor, required this.page,
   }) : super(key: key);
   final String buttonName;
   final VoidCallback onPressed;
   final Color bgColor;
+  final Widget page;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,12 @@ class MyTextButton extends StatelessWidget {
         height: SizeConfig.blockSizeH! * 15.5,
         width: SizeConfig.blockSizeH! * 100,
         child: TextButton(
-          onPressed: onPressed,
+          onPressed: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => page),
+            );
+          },
           child: Text(
             buttonName,
             style: kBodyText1,
