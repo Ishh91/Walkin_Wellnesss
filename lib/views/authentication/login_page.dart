@@ -45,12 +45,14 @@ class _LoginPageState extends State<LoginPage> {
     double height = SizeConfig.blockSizeV!;
     return Stack(
       children: [
-        // Positioned(
-        //   bottom: height * 2,
-        //   // child: Container(
-        //   //   child: Image.asset('assets/images/auth/login_bg.png'),
-        //   // ),
-        // ),
+        Positioned(
+          bottom: height * 2,
+          child: Container(
+            child: 
+            
+            Image.asset('assets/images/splash_image.png'),
+          ),
+        ),
         Scaffold(
           backgroundColor: Colors.transparent,
           body: CustomScrollView(
@@ -64,11 +66,11 @@ class _LoginPageState extends State<LoginPage> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          // Text(
-                          //   'Welcome to\nWalkin_Wellness',
-                          //   style: kTitle,
-                          //   textAlign: TextAlign.center,
-                          // ),
+                          Text(
+                            'Welcome to\nWalkin_Wellness',
+                            style: kTitle,
+                            textAlign: TextAlign.center,
+                          ),
                           SizedBox(
                             height: 16,
                           ),
