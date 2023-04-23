@@ -92,7 +92,7 @@ class _SignUpPageState extends State<SignUpPage> {
                         text: 'Keep me signed in',
                       ),
                       MyCheckBox(
-                        text: 'Email me about special pricing and more',
+                        text: 'Email me ',
                       ),
                       MyTextButton(
                         buttonName: 'Create Account',
@@ -169,4 +169,6 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
     );
   }
+
+  HomePage() {}
 }

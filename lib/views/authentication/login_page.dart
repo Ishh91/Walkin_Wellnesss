@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onboarding_screen/views/welcome_page.dart';
 import '../../app_styles.dart';
 import '../../size_configs.dart';
 import '../../validators.dart';
@@ -17,12 +18,7 @@ class _LoginPageState extends State<LoginPage> {
   final _loginKey = GlobalKey<FormState>();
 
   void onSubmit() {
-    setState(() {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => SignUpPage()),
-      );
-    });
+
     _loginKey.currentState!.validate();
   }
   List<FocusNode> _loginFocusNodes = [
@@ -45,12 +41,12 @@ class _LoginPageState extends State<LoginPage> {
     double height = SizeConfig.blockSizeV!;
     return Stack(
       children: [
-        // Positioned(
-        //   bottom: height * 2,
-        //   // child: Container(
-        //   //   child: Image.asset('assets/images/auth/login_bg.png'),
-        //   // ),
-        // ),
+        Positioned(
+          bottom: height * 3,
+          child: Container(
+            child: Text("Hyy"),
+          ),
+        ),
         Scaffold(
           backgroundColor: Colors.transparent,
           body: CustomScrollView(
@@ -65,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           // Text(
-                          //   'Welcome to\nWalkin_Wellness',
+                          //
                           //   style: kTitle,
                           //   textAlign: TextAlign.center,
                           // ),
@@ -146,10 +142,25 @@ class _LoginPageState extends State<LoginPage> {
                                             focusNode: _loginFocusNodes[1],
                                             validator: passwordValidator,
                                           ),
-                                          MyTextButton(
-                                            buttonName: 'Login',
-                                            onPressed: onSubmit,
-                                            bgColor: kPrimaryColor,
+                                          SizedBox(
+                                            height: SizeConfig.blockSizeH! * 15.5,
+                                            width: SizeConfig.blockSizeH! * 100,
+                                            child: TextButton(onPressed: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(builder: (context) => WelcomePage()),
+                                              );
+                                            }, child: Text(
+                                              "Login", style: kBodyText1,
+                                            ),
+                                              style: TextButton.styleFrom(
+                                                  backgroundColor: kPrimaryColor,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius: BorderRadius.circular(12),
+                                                  )
+                                              ),
+
+                                            ),
                                           ),
                                         ],
                                       ),

@@ -5,17 +5,16 @@ import 'package:onboarding_screen/app_styles.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import './views/pages.dart';
 
-bool ? seenOnboard;
+bool? seenOnboard;
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // to show status bar
-  SystemChrome.setEnabledSystemUIMode(
-      SystemUiMode.manual, overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
-  // to load onboard for the first time only
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+      overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
   SharedPreferences pref = await SharedPreferences.getInstance();
   seenOnboard = pref.getBool('seenOnboard') ?? false; //if null set to false
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
@@ -30,7 +29,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: kScaffoldBackground,
       ),
-      home:seenOnboard == true ? SignUpPage() :OnBoardingPage(),
+      home: seenOnboard == true ? SignUpPage() : OnBoardingPage(),
     );
   }
 }
