@@ -7,16 +7,19 @@ import '../../widgets/buttons/large_icon_button.dart';
 import '../../widgets/buttons/small_text_buttons.dart';
 import '../pages.dart';
 import '../../widgets/widgets.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
   @override
   _LoginPageState createState() => _LoginPageState();
 }
+
 class _LoginPageState extends State<LoginPage> {
   final _loginKey = GlobalKey<FormState>();
   void onSubmit() {
     _loginKey.currentState!.validate();
   }
+
   List<FocusNode> _loginFocusNodes = [
     FocusNode(),
     FocusNode(),
@@ -30,6 +33,7 @@ class _LoginPageState extends State<LoginPage> {
       });
     });
   }
+
   @override
   Widget build(BuildContext context) {
     double height = SizeConfig.blockSizeV!;
