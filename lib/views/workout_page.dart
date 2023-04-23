@@ -5,7 +5,6 @@ import '../widgets/workout/round_info_container.dart';
 
 class Workout_Page extends StatelessWidget {
   const Workout_Page({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,17 +120,12 @@ class Workout_Page extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
-
-
                         title: Text(round1[index]['title']),
                         subtitle: Text(
                             '${round1[index]['subtitle']}\n${round1[index]['leading'][1]}'),
                         trailing: round1[index]['trailing'],
                       );
                     }),
-
-
-
               )
             ],
           )),
