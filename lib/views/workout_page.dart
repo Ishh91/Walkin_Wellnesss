@@ -121,6 +121,8 @@ class Workout_Page extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
+
+
                         title: Text(round1[index]['title']),
                         subtitle: Text(
                             '${round1[index]['subtitle']}\n${round1[index]['leading'][1]}'),
