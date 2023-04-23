@@ -2,9 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:onboarding_screen/views/workout_page.dart';
-import '';
 import '../widgets/workout/round_info_container.dart';
-import '../widgets/style/text.dart';
 
 class WelcomePage extends StatelessWidget {
   @override

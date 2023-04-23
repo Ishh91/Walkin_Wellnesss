@@ -9,23 +9,18 @@ import '../pages.dart';
 import '../../widgets/widgets.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
-
   @override
   _LoginPageState createState() => _LoginPageState();
 }
-
 class _LoginPageState extends State<LoginPage> {
   final _loginKey = GlobalKey<FormState>();
-
   void onSubmit() {
-
     _loginKey.currentState!.validate();
   }
   List<FocusNode> _loginFocusNodes = [
     FocusNode(),
     FocusNode(),
   ];
-
   @override
   void initState() {
     super.initState();
@@ -35,7 +30,6 @@ class _LoginPageState extends State<LoginPage> {
       });
     });
   }
-
   @override
   Widget build(BuildContext context) {
     double height = SizeConfig.blockSizeV!;
@@ -143,23 +137,30 @@ class _LoginPageState extends State<LoginPage> {
                                             validator: passwordValidator,
                                           ),
                                           SizedBox(
-                                            height: SizeConfig.blockSizeH! * 15.5,
+                                            height:
+                                                SizeConfig.blockSizeH! * 15.5,
                                             width: SizeConfig.blockSizeH! * 100,
-                                            child: TextButton(onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(builder: (context) => WelcomePage()),
-                                              );
-                                            }, child: Text(
-                                              "Login", style: kBodyText1,
-                                            ),
-                                              style: TextButton.styleFrom(
-                                                  backgroundColor: kPrimaryColor,
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius: BorderRadius.circular(12),
-                                                  )
+                                            child: TextButton(
+                                              onPressed: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          WelcomePage()),
+                                                );
+                                              },
+                                              child: Text(
+                                                "Login",
+                                                style: kBodyText1,
                                               ),
-
+                                              style: TextButton.styleFrom(
+                                                  backgroundColor:
+                                                      kPrimaryColor,
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            12),
+                                                  )),
                                             ),
                                           ),
                                         ],
