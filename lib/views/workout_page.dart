@@ -121,6 +121,7 @@ class Workout_Page extends StatelessWidget {
                                     fit: BoxFit.cover)),
                           ),
                       title: Text(round1[index]['title']),
+                        subtitle: Text('${round1[index]['subtitle']}'),
                       );
                     }),
               )
