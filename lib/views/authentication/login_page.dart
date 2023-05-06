@@ -10,212 +10,129 @@ import '../../widgets/widgets.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
   @override
-  _LoginPageState createState() => _LoginPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _loginKey = GlobalKey<FormState>();
-  void onSubmit() {
-    _loginKey.currentState!.validate();
-  }
-
+  @override
   List<FocusNode> _loginFocusNodes = [
     FocusNode(),
     FocusNode(),
   ];
-  @override
-  void initState() {
-    super.initState();
-    _loginFocusNodes.forEach((element) {
-      element.addListener(() {
-        setState(() {});
-      });
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    double height = SizeConfig.blockSizeV!;
-    return Stack(
-      children: [
-        Positioned(
-          bottom: height * 3,
-          child: Container(
-            child: Text("Hyy"),
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Column(
+        children: [
+          Container(
+            width: w,
+            height: h * 0.2,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/images/auth/login_bg.png"),
+                    fit: BoxFit.cover)),
           ),
-        ),
-        Scaffold(
-          backgroundColor: Colors.transparent,
-          body: CustomScrollView(
-            slivers: [
-              SliverFillRemaining(
-                hasScrollBody: false,
-                child: Column(
+          Container(
+            width: w,
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Text(
+                    "Welcome",
+                    style: TextStyle(
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Text(
+                    "Sign into your account",
+                    style: TextStyle(fontSize: 20, color: Colors.grey.shade500),
+                  ),
+                ),
+                SizedBox(
+                  height: 50,
+                ),
+                Container(
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                        boxShadow: [
+                          BoxShadow(
+                              spreadRadius: 7,
+                              blurRadius: 10,
+                              offset: Offset(1, 1),
+                              color: Colors.grey.withOpacity(0.2))
+                        ]),
+                    child: Column(
+                      children: [
+                        MyTextFormField(
+                            hint: 'Email',
+                            icon: Icons.email_outlined,
+                            fillColor: Colors.white,
+                            inputType: TextInputType.emailAddress,
+                            inputAction: TextInputAction.next,
+                            focusNode: _loginFocusNodes[0],
+                            validator: emailValidator),
+                        MyPasswordField(
+                          fillColor: Colors.white,
+                          focusNode: _loginFocusNodes[1],
+                          validator: passwordValidator,
+                        ),
+                      ],
+                    )),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
                   children: [
                     Expanded(
-                      flex: 2,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          // Text(
-                          //
-                          //   style: kTitle,
-                          //   textAlign: TextAlign.center,
-                          // ),
-                          SizedBox(
-                            height: 16,
-                          ),
-                        ],
-                      ),
+                      child: Container(),
                     ),
-                    Expanded(
-                      flex: 3,
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 16),
-                            child: Column(
-                              children: [
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                LargeIconButton(
-                                  buttonName: 'Continue with Google',
-                                  iconImage:
-                                      'assets/images/auth/google_icon.png',
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                LargeIconButton(
-                                  buttonName: 'Continue with Facebook',
-                                  iconImage:
-                                      'assets/images/auth/facebook_icon.png',
-                                )
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Expanded(
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(24),
-                              ),
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 14,
-                                  ),
-                                  Text(
-                                    'Login with email',
-                                    style: kBodyText3,
-                                  ),
-                                  Divider(
-                                    height: 30,
-                                    color: kPrimaryColor.withOpacity(0.5),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 16),
-                                    child: Form(
-                                      key: _loginKey,
-                                      child: Column(
-                                        children: [
-                                          MyTextFormField(
-                                            hint: 'Email',
-                                            icon: Icons.email_outlined,
-                                            fillColor: kScaffoldBackground,
-                                            inputType:
-                                                TextInputType.emailAddress,
-                                            inputAction: TextInputAction.next,
-                                            focusNode: _loginFocusNodes[0],
-                                            validator: emailValidator,
-                                          ),
-                                          MyPasswordField(
-                                            fillColor: kScaffoldBackground,
-                                            focusNode: _loginFocusNodes[1],
-                                            validator: passwordValidator,
-                                          ),
-                                          SizedBox(
-                                            height:
-                                                SizeConfig.blockSizeH! * 15.5,
-                                            width: SizeConfig.blockSizeH! * 100,
-                                            child: TextButton(
-                                              onPressed: () {
-                                                Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          WelcomePage()),
-                                                );
-                                              },
-                                              child: Text(
-                                                "Login",
-                                                style: kBodyText1,
-                                              ),
-                                              style: TextButton.styleFrom(
-                                                  backgroundColor:
-                                                      kPrimaryColor,
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            12),
-                                                  )),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 14,
-                                  ),
-                                  GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  ForgotPasswordPage()));
-                                    },
-                                    child: Text(
-                                      'Forgot Password?',
-                                      style: kBodyText3.copyWith(
-                                        decoration: TextDecoration.underline,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text("Don't have an account? "),
-                                      SmallTextButton(
-                                        buttonText: 'Sign up',
-                                        page: SignUpPage(),
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
+                    SmallTextButton(
+                      buttonText: 'Forgot your Password',
+                      page: ForgotPasswordPage(),
                     ),
                   ],
                 ),
+              ],
+            ),
+          ),
+          Container(
+            child: MyTextButton(
+              buttonName: 'Sign In',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => WelcomePage()),
+                );
+              },
+              bgColor: kPrimaryColor,
+            ),
+          ),
+          SizedBox(height: w * 0.08),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Don`t have an account? ',
+                style: kBodyText3,
               ),
+              SmallTextButton(
+                buttonText: 'Create an Account',
+                page: SignUpPage(),
+              )
             ],
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

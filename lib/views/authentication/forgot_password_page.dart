@@ -6,7 +6,6 @@ import '../../widgets/buttons/small_text_buttons.dart';
 import '../pages.dart';
 import '../../widgets/widgets.dart';
 
-
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({Key? key}) : super(key: key);
 
@@ -17,8 +16,7 @@ class ForgotPasswordPage extends StatefulWidget {
 class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final _forgotPassKey = GlobalKey<FormState>();
 
-  void _onSumbit() {
-
+  void _onSubmit() {
     _forgotPassKey.currentState!.validate();
   }
 
@@ -116,7 +114,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                             ),
                             MyTextButton(
                               buttonName: 'Send reset link',
-                              onPressed: _onSumbit,
+                              onPressed: _onSubmit,
                               bgColor: kPrimaryColor,
                             ),
                             SizedBox(

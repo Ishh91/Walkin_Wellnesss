@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:onboarding_screen/app_styles.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import './views/pages.dart';
+import 'package:get/get.dart';
 
 bool? seenOnboard;
 Future<void> main() async {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Walk_in Wellness',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
