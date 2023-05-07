@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onboarding_screen/views/welcome_page.dart';
 import '../../app_styles.dart';
-import '../../size_configs.dart';
 import '../../validators.dart';
-import '../../widgets/buttons/large_icon_button.dart';
 import '../../widgets/buttons/small_text_buttons.dart';
 import '../pages.dart';
 import '../../widgets/widgets.dart';
@@ -17,6 +15,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   @override
+  // ignore: override_on_non_overriding_member
   List<FocusNode> _loginFocusNodes = [
     FocusNode(),
     FocusNode(),

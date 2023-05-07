@@ -13,6 +13,7 @@ Future<void> main() async {
       overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
   SharedPreferences pref = await SharedPreferences.getInstance();
   seenOnboard = pref.getBool('seenOnboard') ?? false; //if null set to false
+
   runApp(const MyApp());
 }
 

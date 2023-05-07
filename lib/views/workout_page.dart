@@ -1,142 +1,150 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:onboarding_screen/workout_data.dart';
-import '../widgets/workout/round_info_container.dart';
+import 'package:intl/intl.dart';
 
-class Workout_Page extends StatelessWidget {
-  const Workout_Page({Key? key}) : super(key: key);
+import '../model/workout_data.dart';
+
+class WorkoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final today = DateTime.now();
+
     return Scaffold(
-      body: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
+      backgroundColor: const Color(0xFF200087),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 16.0,
+            vertical: 16,
+          ),
           child: Column(
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    height: 370,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/workout1.jpg'),
-                            fit: BoxFit.cover,
-                            alignment: Alignment.center),
-                        borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(25.0),
-                          bottomRight: Radius.circular(25.0),
-                        )),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(sigmaX: 1, sigmaY: 2),
-                      child: Container(
-                        color: Colors.white.withOpacity(.123),
-                      ),
-                    ),
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.close,
+                    color: Colors.white,
+                    size: 40,
                   ),
-                  Positioned(
-                    top: 20,
-                    left: 10,
-                    right: 10,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        IconButton(
-                          onPressed: () => Navigator.pop(context),
-                          icon: Icon(Icons.chevron_left),
-                          iconSize: 30,
-                          color: Colors.white,
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.favorite),
-                          iconSize: 30,
-                          color: Colors.white,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 20,
-                    left: 10,
-                    right: 10,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(
-                              vertical: 30.0, horizontal: 20.0),
-                          child: Text(
-                            ' FULL-BODY KILLER \nWORKOUT',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 28.0),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            RoundInfoContainer(
-                                title: '26', subtitle: 'Minutes'),
-                            _divider(),
-                            RoundInfoContainer(title: '3', subtitle: 'Rounds'),
-                            _divider(),
-                            RoundInfoContainer(
-                                title: 'EASY', subtitle: 'Level'),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
               ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Round 1',
-                      style: TextStyle(fontSize: 17.0),
+              SizedBox(
+                height: 20,
+              ),
+              ListTile(
+                title: Text(
+                  "${DateFormat("EEEE").format(today)}, ${DateFormat("d MMMM").format(today)}",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                ),
+                subtitle: Text(
+                  "Upper Body",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 24,
+                    color: Colors.white,
+                  ),
+                ),
+                trailing: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Icon(
+                          Icons.access_time,
+                          color: Colors.white30,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "60 mins",
+                          style: TextStyle(
+                              color: Colors.white70,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16),
+                        )
+                      ],
                     ),
-                    Text(
-                      'Full Body',
-                      style: TextStyle(fontSize: 17.0),
+                    SizedBox(
+                      height: 4,
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Icon(
+                          Icons.shutter_speed,
+                          color: Colors.white30,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          "Easy",
+                          style: TextStyle(
+                              color: Colors.white70,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16),
+                        )
+                      ],
                     ),
                   ],
                 ),
               ),
-              Expanded(
-                child: ListView.builder(
-                    itemCount: round1.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return ListTile(
-                        isThreeLine: true,
+              SizedBox(
+                height: 20,
+              ),
+              for (int i = 0; i < upperBody.length; i++)
+                Column(
+                  children: <Widget>[
+                    for (int j = 0; j < upperBody[i].length; j++)
+                      ListTile(
                         leading: Container(
-                          width: 90.0,
                           decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(round1[index]['leading'][0]),
-                                fit: BoxFit.cover),
-                            borderRadius: BorderRadius.circular(10.0),
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                            color: const Color(0xFF5B4D9D),
+                          ),
+                          padding: const EdgeInsets.all(6),
+                          child: Image.asset(
+                            upperBody[i][j].imagePath,
+                            width: 45,
+                            height: 45,
+                            color: Colors.white,
                           ),
                         ),
-                        title: Text(round1[index]['title']),
+                        title: Text(
+                          upperBody[i][j].name,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                         subtitle: Text(
-                            '${round1[index]['subtitle']}\n${round1[index]['leading'][1]}'),
-                        trailing: round1[index]['trailing'],
-                      );
-                    }),
-              )
+                          upperBody[i][j].instruction,
+                          style: TextStyle(
+                            color: Colors.white70,
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                  ],
+                ),
             ],
-          )),
-    );
-  }
-
-  Widget _divider() {
-    return Container(
-      width: 1.2,
-      height: 35,
-      color: Colors.white.withOpacity(0.4),
+          ),
+        ),
+      ),
     );
   }
 }

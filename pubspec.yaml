@@ -13,15 +13,17 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
-  google_fonts: ^2.1.0
+  google_fonts: ^4.0.4
   shared_preferences: ^2.0.7
   form_field_validator: ^1.1.0
-  flutter_svg: ^0.20.0-nullsafety.3
+  flutter_svg: ^2.0.5
   get:
+  firebase_auth: ^4.5.0
+  firebase_core: ^2.11.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_native_splash: ^1.2.1
+  flutter_native_splash: ^2.2.19
 flutter_native_splash:
   background_image: "assets/images/spla.png"
   android: true

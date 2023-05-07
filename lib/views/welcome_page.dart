@@ -98,7 +98,7 @@ class WelcomePage extends StatelessWidget {
             right: 10,
             child: GestureDetector(
               onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => Workout_Page(),
+                builder: (context) => WorkoutScreen(),
               )),
               child: Container(
                 padding: EdgeInsets.symmetric(vertical: 10),
