@@ -22,9 +22,11 @@ class _MyPasswordFieldState extends State<MyPasswordField> {
 
   @override
   Widget build(BuildContext context) {
+    var passwordController = TextEditingController();
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
+        controller: passwordController,
         style: widget.focusNode.hasFocus
             ? kBodyText2.copyWith(color: kPrimaryColor)
             : kInputHintStyle,

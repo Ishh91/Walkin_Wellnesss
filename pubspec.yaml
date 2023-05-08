@@ -13,6 +13,9 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+
+  animations: ^1.0.0+5
+  font_awesome_flutter: ^8.4.0
   google_fonts: ^4.0.4
   shared_preferences: ^2.0.7
   form_field_validator: ^1.1.0
@@ -20,6 +23,8 @@ dependencies:
   get:
   firebase_auth: ^4.5.0
   firebase_core: ^2.11.0
+  easy_sidemenu: ^0.4.1
+  provider: ^5.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -41,6 +46,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/auth/
+    - assets/images/workout/
 
 
   # example:

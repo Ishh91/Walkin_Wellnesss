@@ -110,7 +110,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                               inputType: TextInputType.emailAddress,
                               inputAction: TextInputAction.done,
                               focusNode: focusNode1,
-                              validator: emailValidator,
+                              validator: emailValidator, Cont: TextEditingController(),
                             ),
                             MyTextButton(
                               buttonName: 'Send reset link',

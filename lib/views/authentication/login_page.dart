@@ -79,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                             inputType: TextInputType.emailAddress,
                             inputAction: TextInputAction.next,
                             focusNode: _loginFocusNodes[0],
-                            validator: emailValidator),
+                            validator: emailValidator, Cont: TextEditingController(),),
                         MyPasswordField(
                           fillColor: Colors.white,
                           focusNode: _loginFocusNodes[1],
@@ -126,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               SmallTextButton(
                 buttonText: 'Create an Account',
-                page: SignUpPage(),
+                page: WelcomePage(),
               )
             ],
           ),

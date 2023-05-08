@@ -10,10 +10,11 @@ class MyTextFormField extends StatelessWidget {
     required this.inputType,
     required this.inputAction,
     required this.focusNode,
-    required this.validator,
+    required this.validator, required this.Cont,
   }) : super(key: key);
 
   final String hint;
+  final TextEditingController Cont;
   final IconData icon;
   final Color fillColor;
   final TextInputType inputType;
@@ -21,11 +22,13 @@ class MyTextFormField extends StatelessWidget {
   final FocusNode focusNode;
   final String? Function(String?) validator;
 
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: TextFormField(
+        controller: Cont,
         style: focusNode.hasFocus
             ? kBodyText2.copyWith(color: kPrimaryColor)
             : kInputHintStyle,

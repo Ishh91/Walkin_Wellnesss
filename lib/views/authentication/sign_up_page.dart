@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:onboarding_screen/views/authentication/auth_controller.dart';
 import '../../app_styles.dart';
 import '../../size_configs.dart';
 import '../../validators.dart';
@@ -39,6 +40,10 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
+    var emailController = TextEditingController();
+    var passwordController = TextEditingController();
+    var userController = TextEditingController();
+
     SizeConfig().init(context);
     double height = SizeConfig.blockSizeV!;
     return Scaffold(
@@ -74,15 +79,18 @@ class _SignUpPageState extends State<SignUpPage> {
                         inputType: TextInputType.name,
                         focusNode: _signUpFocusNodes[0],
                         validator: nameValidator,
+                        Cont: userController,
                       ),
                       MyTextFormField(
-                          hint: 'Email',
-                          icon: Icons.email_outlined,
-                          fillColor: Colors.white,
-                          inputType: TextInputType.emailAddress,
-                          inputAction: TextInputAction.next,
-                          focusNode: _signUpFocusNodes[1],
-                          validator: emailValidator),
+                        hint: 'Email',
+                        icon: Icons.email_outlined,
+                        fillColor: Colors.white,
+                        inputType: TextInputType.emailAddress,
+                        inputAction: TextInputAction.next,
+                        focusNode: _signUpFocusNodes[1],
+                        validator: emailValidator,
+                        Cont: emailController,
+                      ),
                       MyPasswordField(
                         fillColor: Colors.white,
                         focusNode: _signUpFocusNodes[2],
@@ -94,10 +102,16 @@ class _SignUpPageState extends State<SignUpPage> {
                       MyCheckBox(
                         text: 'Email me ',
                       ),
-                      MyTextButton(
-                        buttonName: 'Create Account',
-                        onPressed: onSubmit,
-                        bgColor: kPrimaryColor,
+                      GestureDetector(
+                        onTap: () {
+                          AuthController.instance
+                              .register(emailController.text.trim(), passwordController.text, userController);
+                        },
+                        child: MyTextButton(
+                          buttonName: 'Create Account',
+                          onPressed: onSubmit,
+                          bgColor: kPrimaryColor,
+                        ),
                       ),
                     ],
                   ),
@@ -169,6 +183,5 @@ class _SignUpPageState extends State<SignUpPage> {
       ),
     );
   }
-
-  HomePage() {}
 }
+
