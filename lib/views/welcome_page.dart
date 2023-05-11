@@ -1,6 +1,8 @@
 import 'dart:ui';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:onboarding_screen/views/Calculator/input_page.dart';
+import 'package:onboarding_screen/views/authentication/login_page.dart';
 import 'package:onboarding_screen/views/diet_page.dart';
 import 'package:onboarding_screen/views/workout_page.dart';
 import '../widgets/workout/round_info_container.dart';
@@ -29,7 +31,8 @@ class WelcomePage extends StatelessWidget {
                 ),
                 title: const Text('Diet Plans'),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ProfileScreen()));
                 },
               ),
               ListTile(
@@ -38,18 +41,22 @@ class WelcomePage extends StatelessWidget {
                 ),
                 title: const Text('BMI Calculator'),
                 onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => InputPage()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => InputPage()));
                 },
               ),
               ListTile(
-                leading: Icon(
-                  Icons.logout_outlined,
-                ),
-                title: const Text('Logout'),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
+                  leading: Icon(
+                    Icons.logout_outlined,
+                  ),
+                  title: const Text('Logout'),
+                  onTap: () {
+                    FirebaseAuth.instance.signOut().then((value) {
+                      print("Signed Out");
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
+                    });
+                  }),
             ],
           ),
         ),
@@ -77,7 +84,6 @@ class WelcomePage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-
                   IconButton(
                     onPressed: () {},
                     icon: Icon(Icons.favorite),

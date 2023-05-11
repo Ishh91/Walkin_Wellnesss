@@ -47,6 +47,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    // ignore: unused_local_variable
     double sizeH = SizeConfig.blockSizeH!;
     double sizeV = SizeConfig.blockSizeV!;
     return Scaffold(

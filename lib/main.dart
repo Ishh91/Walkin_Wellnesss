@@ -3,15 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:onboarding_screen/app_styles.dart';
-import 'package:onboarding_screen/views/authentication/auth_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import './views/pages.dart';
-import 'package:get/get.dart';
 
 bool? seenOnboard;
 Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
       overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
   SharedPreferences pref = await SharedPreferences.getInstance();

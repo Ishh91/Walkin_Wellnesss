@@ -5,7 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:onboarding_screen/views/Calculator/results_page.dart';
 import '../../model/constants.dart';
 import '../../widgets/calculator/bottom_button.dart';
-import '../../widgets/calculator/icon_content.dart';
 import '../../widgets/calculator/reusable_cart.dart';
 import '../../widgets/calculator/roundicon_button.dart';
 import 'calculator_brain.dart';
