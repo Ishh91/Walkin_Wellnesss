@@ -45,15 +45,6 @@ class WelcomePage extends StatelessWidget {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => InputPage()));
                 },
-              ), ListTile(
-                leading: Icon(
-                  Icons.calculate_outlined,
-                ),
-                title: const Text('Workout'),
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => InputPage()));
-                },
               ),
               ListTile(
                   leading: Icon(
