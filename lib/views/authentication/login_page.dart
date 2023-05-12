@@ -97,7 +97,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     SmallTextButton(
                       buttonText: 'Forgot your Password',
-                      page: ForgotPasswordPage(),
+                      page: ResetPassword(),
                     ),
                   ],
                 ),

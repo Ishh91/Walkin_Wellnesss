@@ -1,27 +1,27 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import '../../size_configs.dart';
 
-import '../../model/constants.dart';
+class PageBottomButton extends StatelessWidget {
+  final VoidCallback onPress;
+  final String label;
 
-class BottomButton extends StatelessWidget {
-  BottomButton({required this.buttonTitle, required this.onTap});
+  PageBottomButton({required this.label, required this.onPress});
 
-  final Function onTap;
-  final String buttonTitle;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap(),
+      onTap: onPress,
       child: Container(
-        child: Center(
-            child: Text(
-              buttonTitle,
-              style: kLargeButtonTextStyle,
-            )),
-        color: kBottomConatinerColour,
-        margin: EdgeInsets.only(top: 10.0),
-        padding: EdgeInsets.only(bottom: 10.0),
+        alignment: Alignment.center,
+        padding: EdgeInsets.only(bottom: 20.0),
+        color: kBottomContainerColor,
+        margin: EdgeInsets.only(top: 15),
         width: double.infinity,
         height: kBottomContainerHeight,
+        child: Text(
+          label,
+          style: kLargeButtonTextStyle,
+        ),
       ),
     );
   }

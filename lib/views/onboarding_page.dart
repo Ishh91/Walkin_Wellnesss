@@ -79,14 +79,14 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       height: sizeV * 5,
                     ),
                     Container(
-                      height: sizeV * 50,
+                      height: sizeV * 40,
                       child: Image.asset(
                         onboardingContents[index].image,
                         fit: BoxFit.contain,
                       ),
                     ),
                     SizedBox(
-                      height: sizeV * 5,
+                      height: sizeV * 3,
                     ),
                     RichText(
                       textAlign: TextAlign.center,
@@ -111,7 +111,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       ),
                     ),
                     SizedBox(
-                      height: sizeV * 5,
+                      height: sizeV * 3,
+
                     ),
                   ],
                 ),

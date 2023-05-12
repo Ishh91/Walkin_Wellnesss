@@ -25,6 +25,8 @@ dependencies:
   provider: ^5.0.0
   font_awesome_flutter: ^10.4.0
   animations: ^2.0.7
+  velocity_x: ^0.4.1
+  vxstate: ^2.3.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

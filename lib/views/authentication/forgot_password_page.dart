@@ -1,159 +1,68 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../../app_styles.dart';
-import '../../size_configs.dart';
-import '../../validators.dart';
-import '../../widgets/buttons/small_text_buttons.dart';
-import '../pages.dart';
-import '../../widgets/widgets.dart';
+import 'package:onboarding_screen/views/authentication/reusable_widget.dart';
 
-class ForgotPasswordPage extends StatefulWidget {
-  const ForgotPasswordPage({Key? key}) : super(key: key);
+class ResetPassword extends StatefulWidget {
+  const ResetPassword({Key? key}) : super(key: key);
 
   @override
-  _ForgotPasswordPageState createState() => _ForgotPasswordPageState();
+  _ResetPasswordState createState() => _ResetPasswordState();
 }
 
-class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
-  final _forgotPassKey = GlobalKey<FormState>();
-
-  void _onSubmit() {
-    _forgotPassKey.currentState!.validate();
-  }
-
-  FocusNode focusNode1 = FocusNode();
-
-  @override
-  void initState() {
-    super.initState();
-    focusNode1.addListener(() {
-      setState(() {});
-    });
-  }
-
+class _ResetPasswordState extends State<ResetPassword> {
+  TextEditingController _emailTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    double height = SizeConfig.blockSizeV!;
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leadingWidth: 80,
-        leading: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5),
-          child: CircleAvatar(
-            backgroundColor: kSecondaryColor.withOpacity(0.1),
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_back,
-                color: kSecondaryColor,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ),
+        title: const Text(
+          "Reset Password",
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
       ),
-      body: CustomScrollView(
-        slivers: [
-          SliverFillRemaining(
-            hasScrollBody: false,
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(colors: [
+              hexStringToColor("CB2B93"),
+              hexStringToColor("9546C4"),
+              hexStringToColor("5E61F4")
+            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+        child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: height * 3,
-                  ),
-                  Center(
-                    child: Text(
-                      "Forgot your password?",
-                      style: kTitle2,
-                    ),
-                  ),
-                  SizedBox(
-                    height: height * 2,
-                  ),
-                  Container(
-                    child: Image.asset(
-                      'assets/images/auth/forgot_password_illustration.png',
-                    ),
-                  ),
-                  SizedBox(
-                    height: height * 2,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Form(
-                        key: _forgotPassKey,
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "Enter your registered email to receive password reset instruction",
-                              textAlign: TextAlign.center,
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            MyTextFormField(
-                              hint: 'Email',
-                              icon: Icons.email_outlined,
-                              fillColor: kScaffoldBackground,
-                              inputType: TextInputType.emailAddress,
-                              inputAction: TextInputAction.done,
-                              focusNode: focusNode1,
-                              validator: emailValidator, Cont: TextEditingController(),
-                            ),
-                            MyTextButton(
-                              buttonName: 'Send reset link',
-                              onPressed: _onSubmit,
-                              bgColor: kPrimaryColor,
-                            ),
-                            SizedBox(
-                              height: 16,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Remember password?',
-                              style: kBodyText3,
-                            ),
-                            SmallTextButton(
-                              buttonText: 'Login',
-                              page: LoginPage(),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 16,
-                        )
-                      ],
-                    ),
-                  )
-                ],
+          padding: EdgeInsets.fromLTRB(20, 120, 20, 0),
+          child: Column(
+            children: <Widget>[
+              logoWidget("assets/images/auth/forgot_password_illustration.png"),
+              const SizedBox(
+                height: 30,
               ),
-            ),
+              reusableTextField("Enter Email Id", Icons.person_outline, false,
+                  _emailTextController),
+              const SizedBox(
+                height: 20,
+              ),
+              firebaseUIButton(context, "Reset Password", () {
+                FirebaseAuth.instance
+                    .sendPasswordResetEmail(email: _emailTextController.text)
+                    .then((value) => Navigator.of(context).pop());
+              })
+            ],
           ),
-        ],
+        )),
       ),
     );
   }
+}
+
+hexStringToColor(String hexColor) {
+  hexColor = hexColor.toUpperCase().replaceAll("#", "");
+  if (hexColor.length == 6) {
+    hexColor = "FF" + hexColor;
+  }
+  return Color(int.parse(hexColor, radix: 16));
 }

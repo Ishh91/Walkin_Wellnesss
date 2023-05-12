@@ -1,7 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:onboarding_screen/views/workout_page.dart';
 import 'package:vector_math/vector_math_64.dart' as math;
 
 import '../model/meal.dart';
@@ -18,53 +17,12 @@ class ProfileScreen extends StatelessWidget {
       backgroundColor: const Color(0xFFE9E9E9),
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
-        child: BottomNavigationBar(
-          iconSize: 40,
-          selectedIconTheme: IconThemeData(
-            color: const Color(0xFF200087),
-          ),
-          unselectedIconTheme: IconThemeData(
-            color: Colors.black12,
-          ),
-          items: [
-            BottomNavigationBarItem(
-              icon: Padding(
-                padding: const EdgeInsets.only(top: 8.0),
-                child: Icon(Icons.home),
-              ),
-              // icon: Text(
-              //   "Home",
-              //   style: const TextStyle(color: Colors.white),
-              // ),
-            ),
-            BottomNavigationBarItem(
-              icon: Padding(
-                child: Icon(Icons.search),
-                padding: const EdgeInsets.only(top: 8.0),
-              ),
-              // title: Text(
-              //   "Search",
-              //   style: const TextStyle(color: Colors.white),
-              // ),
-            ),
-            BottomNavigationBarItem(
-              icon: Padding(
-                child: Icon(Icons.person),
-                padding: const EdgeInsets.only(top: 8.0),
-              ),
-              // title: Text(
-              //   "Profile",
-              //   style: const TextStyle(color: Colors.white),
-              // ),
-            ),
-          ],
-        ),
       ),
       body: Stack(
         children: <Widget>[
           Positioned(
             top: 0,
-            height: height * 0.35,
+            height: height * 0.5,
             left: 0,
             right: 0,
             child: ClipRRect(
@@ -73,7 +31,8 @@ class ProfileScreen extends StatelessWidget {
               ),
               child: Container(
                 color: Colors.white,
-                padding: const EdgeInsets.only(top: 40, left: 32, right: 16, bottom: 10),
+                padding: const EdgeInsets.only(
+                    top: 40, left: 32, right: 16, bottom: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -93,7 +52,8 @@ class ProfileScreen extends StatelessWidget {
                           color: Colors.black,
                         ),
                       ),
-                      trailing: ClipOval(child: Image.asset("assets/user.jpg")),
+                      trailing: ClipOval(
+                          child: Image.asset("assets/images/circle.png")),
                     ),
                     SizedBox(
                       height: 10,
@@ -149,8 +109,9 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
           ),
+          
           Positioned(
-            top: height * 0.38,
+            top: height * 0.5,
             left: 0,
             right: 0,
             child: Container(
@@ -166,7 +127,10 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     child: Text(
                       "MEALS FOR TODAY",
-                      style: const TextStyle(color: Colors.blueGrey, fontSize: 16, fontWeight: FontWeight.w700),
+                      style: const TextStyle(
+                          color: Colors.blueGrey,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700),
                     ),
                   ),
                   Expanded(
@@ -179,7 +143,8 @@ class ProfileScreen extends StatelessWidget {
                           ),
                           for (int i = 0; i < meals.length; i++)
                             _MealCard(
-                              meal: meals[i], key: null,
+                              meal: meals[i],
+                              key: null,
                             ),
                         ],
                       ),
@@ -187,123 +152,6 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   SizedBox(
                     height: 20,
-                  ),
-                  Expanded(
-                    child: OpenContainer(
-                      closedElevation: 0,
-                      transitionType: ContainerTransitionType.fade,
-                      transitionDuration: const Duration(milliseconds: 1000),
-                      closedColor: const Color(0xFFE9E9E9),
-                      openBuilder: (context, _) {
-                        return WorkoutScreen();
-                      },
-                      closedBuilder: (context, VoidCallback openContainer) {
-                        return GestureDetector(
-                          onTap: openContainer,
-                          child: Container(
-                            margin: const EdgeInsets.only(bottom: 10, left: 32, right: 32),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(30)),
-                              gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  const Color(0xFF20008B),
-                                  const Color(0xFF200087),
-                                ],
-                              ),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                SizedBox(
-                                  width: 20,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 16.0, left: 16),
-                                  child: Text(
-                                    "YOUR NEXT WORKOUT",
-                                    style: TextStyle(
-                                      color: Colors.white70,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 4.0, left: 16),
-                                  child: Text(
-                                    "Upper Body",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.w800,
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Row(
-                                    children: <Widget>[
-                                      SizedBox(
-                                        width: 20,
-                                      ),
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(25)),
-                                          color: const Color(0xFF5B4D9D),
-                                        ),
-                                        padding: const EdgeInsets.all(10),
-                                        child: Image.asset(
-                                          "assets/chest.png",
-                                          width: 50,
-                                          height: 50,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(25)),
-                                          color: const Color(0xFF5B4D9D),
-                                        ),
-                                        padding: const EdgeInsets.all(10),
-                                        child: Image.asset(
-                                          "assets/back.png",
-                                          width: 50,
-                                          height: 50,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(25)),
-                                          color: const Color(0xFF5B4D9D),
-                                        ),
-                                        padding: const EdgeInsets.all(10),
-                                        child: Image.asset(
-                                          "assets/biceps.png",
-                                          width: 50,
-                                          height: 50,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-                      },
-                    ),
                   ),
                 ],
               ),
@@ -321,7 +169,12 @@ class _IngredientProgress extends StatelessWidget {
   final double progress, width;
   final Color progressColor;
 
-  const _IngredientProgress({ required this.ingredient, required this.leftAmount, required this.progress, required this.progressColor, required this.width});
+  const _IngredientProgress(
+      {required this.ingredient,
+      required this.leftAmount,
+      required this.progress,
+      required this.progressColor,
+      required this.width});
 
   @override
   Widget build(BuildContext context) {
@@ -373,7 +226,8 @@ class _IngredientProgress extends StatelessWidget {
 class _RadialProgress extends StatelessWidget {
   final double height, width, progress;
 
-  const _RadialProgress({ required this.height, required this.width, required this.progress});
+  const _RadialProgress(
+      {required this.height, required this.width, required this.progress});
 
   @override
   Widget build(BuildContext context) {
@@ -449,7 +303,7 @@ class _RadialPainter extends CustomPainter {
 class _MealCard extends StatelessWidget {
   final Meal meal;
 
-  const _MealCard({ Key? key, required this.meal}) : super(key: key);
+  const _MealCard({Key? key, required this.meal}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -468,11 +322,13 @@ class _MealCard extends StatelessWidget {
             Flexible(
               fit: FlexFit.tight,
               child: OpenContainer(
-                closedShape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
+                closedShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
                 transitionDuration: const Duration(milliseconds: 1000),
                 openBuilder: (context, _) {
                   return MealDetailScreen(
-                    meal: meal, key: null,
+                    meal: meal,
+                    key: null,
                   );
                 },
                 closedBuilder: (context, openContainer) {
@@ -554,5 +410,3 @@ class _MealCard extends StatelessWidget {
     );
   }
 }
-
-

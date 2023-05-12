@@ -6,13 +6,14 @@ import 'package:onboarding_screen/views/authentication/login_page.dart';
 import 'package:onboarding_screen/views/diet_page.dart';
 import 'package:onboarding_screen/views/workout_page.dart';
 import '../widgets/workout/round_info_container.dart';
+import 'Calculator/results_page.dart';
 
 class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: const Color(0xff636366),
+          backgroundColor: Colors.transparent,
         ),
         drawer: Drawer(
           child: ListView(
@@ -40,6 +41,15 @@ class WelcomePage extends StatelessWidget {
                   Icons.calculate_outlined,
                 ),
                 title: const Text('BMI Calculator'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => InputPage()));
+                },
+              ), ListTile(
+                leading: Icon(
+                  Icons.calculate_outlined,
+                ),
+                title: const Text('Workout'),
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => InputPage()));

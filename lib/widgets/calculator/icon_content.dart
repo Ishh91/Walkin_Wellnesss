@@ -1,26 +1,24 @@
 import 'package:flutter/material.dart';
-
-import '../../model/constants.dart';
-
-
-class IconConent extends StatelessWidget {
-  IconConent({required this.icon, required this.label});
-  final IconData icon;
+import '../../size_configs.dart';
+class IconContent extends StatelessWidget {
   final String label;
+  final IconData icon;
+
+  IconContent({required this.label, required this.icon});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
         Icon(
           icon,
-          size: 80.0,
+          size: iconSize,
         ),
-        SizedBox(
-          height: 15.0,
-        ),
+        SizedBox(height: labelIconSpacing),
         Text(
-          label,
+          label.toUpperCase(),
           style: kLabelTextStyle,
         ),
       ],
