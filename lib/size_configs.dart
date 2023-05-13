@@ -66,3 +66,5 @@ const double labelIconSpacing = 10.0;
 const double kBottomContainerHeight = 80.0;
 const double kSliderMin = 100.0;
 const double kSliderMax = 250.0;
+
+

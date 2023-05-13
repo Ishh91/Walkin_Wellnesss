@@ -5,7 +5,7 @@ import 'package:onboarding_screen/Details/widgets/graph.dart';
 import 'package:onboarding_screen/Details/widgets/info.dart' hide Stats;
 import 'package:onboarding_screen/Details/widgets/stats.dart';
 import 'package:onboarding_screen/Details/widgets/steps.dart';
-import '../views/bottom_menu.dart';
+import '../views/pages/bottom_menu.dart';
 
 class DetailsPage extends StatelessWidget {
   const DetailsPage({Key? key}) : super(key: key);

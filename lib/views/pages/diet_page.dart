@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:vector_math/vector_math_64.dart' as math;
 
-import '../model/meal.dart';
+import '../../model/meal.dart';
 import 'diet.dart';
 
 class ProfileScreen extends StatelessWidget {

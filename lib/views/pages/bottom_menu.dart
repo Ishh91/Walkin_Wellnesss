@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:onboarding_screen/views/authentication/logout_page.dart';
-import 'package:onboarding_screen/views/welcome_page.dart';
-import 'diet_page.dart';
+import '../pages.dart';
 class BottomNavigation extends StatelessWidget {
   const BottomNavigation({Key? key}) : super(key: key);
   @override

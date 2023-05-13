@@ -2,11 +2,8 @@ import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:onboarding_screen/Details/detail.dart';
-import 'package:onboarding_screen/views/Calculator/input_page.dart';
-import 'package:onboarding_screen/views/authentication/login_page.dart';
-import 'package:onboarding_screen/views/diet_page.dart';
-import 'package:onboarding_screen/views/workout_page.dart';
-import 'bottom_menu.dart';
+import '../details_page.dart';
+import 'pages.dart';
 import '../widgets/workout/round_info_container.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -41,10 +38,19 @@ class WelcomePage extends StatelessWidget {
                 leading: Icon(
                   Icons.food_bank_outlined,
                 ),
-                title: const Text('Diet Plans'),
+                title: const Text('Activity'),
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => DetailsPage()));
+                },
+              ), ListTile(
+                leading: Icon(
+                  Icons.food_bank_outlined,
+                ),
+                title: const Text('Meditation'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => DetailsScreen()));
                 },
               ),
               ListTile(

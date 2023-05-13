@@ -20,7 +20,7 @@ dependencies:
   flutter_svg: ^2.0.5
   get:
   firebase_auth: ^4.5.0
-  firebase_core: ^2.11.0
+  firebase_core: ^2.12.0
   easy_sidemenu: ^0.4.1
   provider: ^5.0.0
   font_awesome_flutter: ^10.4.0

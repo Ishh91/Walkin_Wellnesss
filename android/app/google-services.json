@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "1011991530780",
-    "project_id": "walkin-wellness-e1984",
-    "storage_bucket": "walkin-wellness-e1984.appspot.com"
+    "project_number": "280119961224",
+    "project_id": "walkinwellness-6a6e1",
+    "storage_bucket": "walkinwellness-6a6e1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1011991530780:android:c2facf8d20bb0de2afbed9",
+        "mobilesdk_app_id": "1:280119961224:android:0acaed6453cf706291e13d",
         "android_client_info": {
           "package_name": "com.walk_in_wellness.onboarding_screen"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1011991530780-0qm6favsefck5fhtnspt65oq08k0l1h0.apps.googleusercontent.com",
+          "client_id": "280119961224-7l0csvd1iqve8uenkbg2j8cp8hne1nmo.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB4w5j3V2BuDCh0O0PiFMyPjVsFxNHw7uQ"
+          "current_key": "AIzaSyDTBpMD0Ylaz_XJ2VD1AQPpc42FohMeg9A"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1011991530780-0qm6favsefck5fhtnspt65oq08k0l1h0.apps.googleusercontent.com",
+              "client_id": "280119961224-7l0csvd1iqve8uenkbg2j8cp8hne1nmo.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
