@@ -62,19 +62,19 @@ class WorkoutScreen extends StatelessWidget {
                           color: Colors.white30,
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 3,
                         ),
                         Text(
                           "60 mins",
                           style: TextStyle(
                               color: Colors.white70,
                               fontWeight: FontWeight.w600,
-                              fontSize: 16),
+                              fontSize: 14),
                         )
                       ],
                     ),
                     SizedBox(
-                      height: 4,
+                      height: 3,
                     ),
                     Row(
                       mainAxisSize: MainAxisSize.min,
@@ -84,14 +84,14 @@ class WorkoutScreen extends StatelessWidget {
                           color: Colors.white30,
                         ),
                         SizedBox(
-                          width: 5,
+                          width: 3,
                         ),
                         Text(
                           "Easy",
                           style: TextStyle(
                               color: Colors.white70,
                               fontWeight: FontWeight.w600,
-                              fontSize: 16),
+                              fontSize: 14),
                         )
                       ],
                     ),
@@ -99,7 +99,7 @@ class WorkoutScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               for (int i = 0; i < upperBody.length; i++)
                 Column(

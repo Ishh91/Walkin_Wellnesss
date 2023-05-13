@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../model/meal.dart';
@@ -6,8 +5,7 @@ import '../model/meal.dart';
 class MealDetailScreen extends StatefulWidget {
   final Meal meal;
 
-  const MealDetailScreen({ Key? key, required this.meal}) : super(key: key);
-
+  const MealDetailScreen({Key? key, required this.meal}) : super(key: key);
 
   @override
   State<MealDetailScreen> createState() => _MealDetailScreenState();
@@ -25,10 +23,12 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
             floating: true,
             backgroundColor: const Color(0xFF200087),
             expandedHeight: 300,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(40))),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(40))),
             flexibleSpace: FlexibleSpaceBar(
               background: ClipRRect(
-                borderRadius: BorderRadius.vertical(bottom: Radius.circular(40)),
+                borderRadius:
+                    BorderRadius.vertical(bottom: Radius.circular(40)),
                 child: Image.asset(
                   widget.meal.imagePath,
                   fit: BoxFit.cover,
@@ -70,12 +70,15 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
                           ),
                           Text(
                             "${widget.meal.kiloCaloriesBurnt} kcal",
-                            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w600, fontSize: 16),
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16),
                           ),
                         ],
                       ),
                       SizedBox(
-                        height: 4,
+                        height: 2,
                       ),
                       Row(
                         mainAxisSize: MainAxisSize.min,
@@ -85,11 +88,14 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
                             color: Colors.grey,
                           ),
                           SizedBox(
-                            width: 5,
+                            width: 4,
                           ),
                           Text(
                             "${widget.meal.timeTaken} mins",
-                            style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w600, fontSize: 16),
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16),
                           )
                         ],
                       ),
@@ -97,7 +103,7 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 25,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -148,7 +154,8 @@ class _MealDetailScreenState extends State<MealDetailScreen> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 16, bottom: 32),
+                  padding:
+                      const EdgeInsets.only(left: 16, right: 16, bottom: 32),
                   child: Text(
                     widget.meal.preparation,
                     style: TextStyle(

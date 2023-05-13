@@ -1,12 +1,13 @@
 import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:onboarding_screen/Details/detail.dart';
 import 'package:onboarding_screen/views/Calculator/input_page.dart';
 import 'package:onboarding_screen/views/authentication/login_page.dart';
 import 'package:onboarding_screen/views/diet_page.dart';
 import 'package:onboarding_screen/views/workout_page.dart';
+import 'bottom_menu.dart';
 import '../widgets/workout/round_info_container.dart';
-import 'Calculator/results_page.dart';
 
 class WelcomePage extends StatelessWidget {
   @override
@@ -34,6 +35,16 @@ class WelcomePage extends StatelessWidget {
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => ProfileScreen()));
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.food_bank_outlined,
+                ),
+                title: const Text('Diet Plans'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => DetailsPage()));
                 },
               ),
               ListTile(
@@ -138,36 +149,7 @@ class WelcomePage extends StatelessWidget {
                 ],
               ),
             ),
-            Positioned(
-              bottom: 20,
-              left: 10,
-              right: 10,
-              child: GestureDetector(
-                onTap: () => Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => WorkoutScreen(),
-                )),
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 10),
-                  decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.7),
-                      borderRadius: BorderRadius.circular(10.0)),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Start Workout',
-                        style: TextStyle(fontSize: 18.0, color: Colors.black),
-                        textAlign: TextAlign.center,
-                      ),
-                      Icon(
-                        Icons.chevron_right,
-                        size: 20,
-                        color: Colors.black,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            )
+            Positioned(bottom: 0, left: 0, right: 0, child: BottomNavigation()),
           ],
         ));
   }
