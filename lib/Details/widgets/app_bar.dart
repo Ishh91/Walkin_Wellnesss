@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   final AppBar appBar;
+ final String sum;
+
 
   const MainAppBar({
     Key? key,
-    required this.appBar,
+    required this.appBar, required this.sum,
   }) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
+
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
@@ -23,12 +27,12 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
           size: 16,
         ),
       ),
-      title: const Text(
-        'Activity',
+      title: Text(
+        sum,
         style: TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.bold,
-          fontSize: 14,
+          fontSize: 16,
         ),
       ),
       centerTitle: true,

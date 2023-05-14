@@ -8,9 +8,7 @@ import './views/pages.dart';
 
 bool? seenOnboard;
 Future<void> main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
       overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
   SharedPreferences pref = await SharedPreferences.getInstance();
@@ -33,7 +31,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         scaffoldBackgroundColor: kScaffoldBackground,
       ),
-      home: seenOnboard == true ? SignUpPage() : OnBoardingPage(),
+      home: seenOnboard == true ? WelcomePage() : OnBoardingPage(),
     );
   }
 }

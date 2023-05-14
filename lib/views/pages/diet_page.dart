@@ -1,10 +1,11 @@
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:onboarding_screen/views/pages.dart';
 import 'package:vector_math/vector_math_64.dart' as math;
 
+import '../../Details/widgets/app_bar.dart';
 import '../../model/meal.dart';
-import 'diet.dart';
 
 class ProfileScreen extends StatelessWidget {
   @override
@@ -13,11 +14,13 @@ class ProfileScreen extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final today = DateTime.now();
 
+
     return Scaffold(
       backgroundColor: const Color(0xFFE9E9E9),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(40)),
-      ),
+      bottomNavigationBar:BottomNavigation(),
+
+      appBar: MainAppBar(appBar: AppBar(), sum: 'Diet',),
+
       body: Stack(
         children: <Widget>[
           Positioned(
@@ -45,7 +48,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                       ),
                       subtitle: Text(
-                        "Hello, David",
+                        "Hello",
                         style: TextStyle(
                           fontWeight: FontWeight.w800,
                           fontSize: 26,

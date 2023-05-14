@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:onboarding_screen/views/pages.dart';
 
+import 'Details/widgets/app_bar.dart';
+
 class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: MainAppBar(appBar: AppBar(), sum: 'Meditation',),
       bottomNavigationBar: BottomNavigation(),
       body: Stack(
         children: <Widget>[

@@ -14,7 +14,11 @@ class DetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: MainAppBar(appBar: AppBar()),
+      appBar: MainAppBar(
+        appBar: AppBar(),
+        sum: 'Activity',
+      ),
+      bottomNavigationBar: BottomNavigation(),
       body: Column(
         children: const [
           Dates(),
@@ -27,7 +31,6 @@ class DetailsPage extends StatelessWidget {
           Divider(height: 30),
           Stat(),
           SizedBox(height: 30),
-          BottomNavigation(),
         ],
       ),
     );

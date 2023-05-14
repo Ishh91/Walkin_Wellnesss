@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:onboarding_screen/model/constants.dart';
 import 'package:onboarding_screen/views/Calculator/results_page.dart';
 
+import '../../Details/widgets/app_bar.dart';
 import '../../widgets/calculator/bottom_button.dart';
 import '../../widgets/calculator/icon_content.dart';
 import '../../widgets/calculator/reusable_cart.dart';
@@ -28,9 +29,7 @@ class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
-      ),
+      appBar: MainAppBar(appBar: AppBar(), sum: 'Bmi Calculator',),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[

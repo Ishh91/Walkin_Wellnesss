@@ -6,7 +6,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../main.dart';
 import '../widgets/buttons/my_text_button.dart';
 import '../widgets/onboard_nav_btn.dart';
-import 'authentication/sign_up_page.dart';
 import './pages.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -112,7 +111,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                     ),
                     SizedBox(
                       height: sizeV * 3,
-
                     ),
                   ],
                 ),
@@ -121,15 +119,16 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             Expanded(
               flex: 1,
               child: Column(
+
                 children: [
+
                   currentPage == onboardingContents.length - 1
-                      ? MyTextButton(
-                          buttonName: 'Get Started',
+                      ? MyTextButton(buttonName: 'Get Started',
                           onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SignUpPage()),
+                                  builder: (context) => WelcomePage()),
                             );
                           },
                           bgColor: kPrimaryColor,
@@ -143,7 +142,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => SignUpPage()));
+                                        builder: (context) => WelcomePage()));
                               },
                             ),
                             Row(

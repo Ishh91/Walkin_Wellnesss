@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../Details/widgets/app_bar.dart';
 import '../../size_configs.dart';
 import '../../widgets/calculator/bottom_button.dart';
 import '../../widgets/calculator/reusable_cart.dart';
@@ -12,9 +13,8 @@ class ResultsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
-      ),
+
+      appBar: MainAppBar(appBar: AppBar(), sum: 'Bmi Calculator',),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

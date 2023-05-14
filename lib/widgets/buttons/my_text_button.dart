@@ -11,7 +11,7 @@ class MyTextButton extends StatelessWidget {
     required this.bgColor,
   }) : super(key: key);
   final String buttonName;
-  final VoidCallback onPressed;
+  final Function onPressed;
   final Color bgColor;
 
   @override
@@ -21,11 +21,11 @@ class MyTextButton extends StatelessWidget {
         vertical: 10,
       ),
       child: SizedBox(
-        height: SizeConfig.blockSizeH! * 15.5,
+        height: SizeConfig.blockSizeH! * 10,
         width: SizeConfig.blockSizeH! * 100,
         child: TextButton(
           onPressed: (){
-            onPressed;
+            onPressed();
           },
           child: Text(
             buttonName,

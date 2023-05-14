@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:onboarding_screen/Details/detail.dart';
+import 'package:onboarding_screen/views/yoga/screens/home/home_screen.dart';
 import '../details_page.dart';
 import 'pages.dart';
 import '../widgets/workout/round_info_container.dart';
@@ -11,7 +12,7 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          title: Text('Walkin_Wellness'),
         ),
         drawer: Drawer(
           child: ListView(
@@ -52,6 +53,15 @@ class WelcomePage extends StatelessWidget {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => DetailsScreen()));
                 },
+              ),ListTile(
+                leading: Icon(
+                  Icons.food_bank_outlined,
+                ),
+                title: const Text('Yoga'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => YogaScreen()));
+                },
               ),
               ListTile(
                 leading: Icon(
@@ -63,18 +73,7 @@ class WelcomePage extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => InputPage()));
                 },
               ),
-              ListTile(
-                  leading: Icon(
-                    Icons.logout_outlined,
-                  ),
-                  title: const Text('Logout'),
-                  onTap: () {
-                    FirebaseAuth.instance.signOut().then((value) {
-                      print("Signed Out");
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage()));
-                    });
-                  }),
+
             ],
           ),
         ),
