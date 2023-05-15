@@ -1,12 +1,7 @@
-# onboarding_screen
+# Walkin_Wellness
 
-A new Flutter project.
+A workout Project in which you find Workout Plans, Diet Screen, Yoga Screen, Bmi Calculator and Meditation information.
 
-## Getting Started
+This is my Minor Project and Everything is available like prject report & term paper.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
